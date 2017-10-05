@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
-using System.Numerics;
 
 // WARNING: DO NOT code like this. Please. EVER! 
 //          "Aaaargh!" 
@@ -16,16 +15,6 @@ using System.Numerics;
 //
 namespace SnakeMess
 {
-	class Vector2
-    {
-
-		public const string Ok = "Ok";
-
-        public int X, Y;
-        public Vector2(int x = 0, int y = 0) { X = x; Y = y; }
-        public Vector2(Vector2 input) { X = input.X; Y = input.Y; }
-    }
-
 	class SnakeMess
     {
         public static void Main(string[] arguments)
@@ -37,13 +26,15 @@ namespace SnakeMess
             Random _rng = new Random();
             Vector2 _app = new Vector2();
 
-            List<Vector2> snake = new List<Vector2>();
-            snake.Add(new Vector2(10, 10));
-            snake.Add(new Vector2(10, 10));
-            snake.Add(new Vector2(10, 10));
-            snake.Add(new Vector2(10, 10));
+			List<Vector2> snake = new List<Vector2>
+			{
+				new Vector2(10, 10),
+				new Vector2(10, 10),
+				new Vector2(10, 10),
+				new Vector2(10, 10)
+			};
 
-            Console.CursorVisible = false;
+			Console.CursorVisible = false;
             Console.Title = "Westerdals Oslo ACT - SNAKE";
             Console.ForegroundColor = ConsoleColor.Green; Console.SetCursorPosition(10, 10); Console.Write("@");
 
