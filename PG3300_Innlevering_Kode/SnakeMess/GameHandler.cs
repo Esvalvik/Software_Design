@@ -2,9 +2,10 @@
 
 namespace SnakeMess
 {
-	public class Board
+
+	public class GameHandler
 	{
-		public Board()
+		public GameHandler()
 		{
 		}
 	}
