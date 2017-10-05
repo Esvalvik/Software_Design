@@ -1,8 +1,43 @@
 05.10.2017
 
-Mangler medlemmer Thorseboi96 og MC Hammer90
+Mangler medlemmer Thorseboi96 og MC Hammer87
 
 1. Gikk gjennom koden, byttet ut navn og gav mer luft mellom linjene.
 2. Tegnet opp røff oversikt over fornuftige klasser i Sebsmeisters bok
 3. Delte opp koden i nye klasser
 
+
+
+
+
+
+
+
+
+
+TODO
+
+Snake
+	- List<Vector2>
+	- int Direction
+	+ bool PosTaken(Vector2)
+	+ move();
+
+Food
+	- Vector2 Pos
+	+ GenerateRandomPosition()
+
+Vector2
+	- int x
+	- int y
+
+GameHandler
+	+ Init()
+	+ Update()
+	+ Draw()
+
+Board
+	- Snake
+	- Food
+	- Vector2 gameWindowSize
+	
