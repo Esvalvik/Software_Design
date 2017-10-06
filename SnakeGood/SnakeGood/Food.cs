@@ -10,7 +10,8 @@ namespace SnakeGood
 
 		public Food(Vector2 size)
 		{
-			Position = NewPosition(size);
+			Position = new Vector2(10,10);
+			//Position = NewPosition(size);
 		}
 
 		//Generate a new random for the food within gamewindow

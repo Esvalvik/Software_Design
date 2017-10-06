@@ -42,6 +42,7 @@ namespace SnakeGood
 		{
 			foreach(Vector2 i in Body)
 			{
+				Console.WriteLine(i.ToString);
 				if(pos == i)
 				{
 					return true;
