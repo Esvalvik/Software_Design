@@ -20,6 +20,5 @@ namespace SnakeGood
 			return new Vector2(_rnd.Next(0, size.X), _rnd.Next(0, size.Y));
 		}
 
-
 	}
 }

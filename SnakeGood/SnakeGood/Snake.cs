@@ -11,13 +11,18 @@ namespace SnakeGood
 		{
 			get; set;
 		}
-		Vector2 Head
+		public int LastDirection
+		{
+			get; set;
+		}
+
+		int Head
 		{
 			get;
 		}
-		Vector2 Tail
+		int Tail
 		{
-			get;
+			get; set;
 		}
 
 		public Snake(int size)
@@ -27,14 +32,32 @@ namespace SnakeGood
 				Body.Add(new Vector2(10, 10));
 			}
 
-			Head = Body.First();
-			Tail = Body.Last();
-
-			
+			Head = 0;
+			Tail = Body.Capacity - 1;
+			Direction = 3;
+			LastDirection = Direction;
 		}
 
 		public void Move()
 		{
+			Vector2 tempVector = Body[Head];
+			switch(Direction)
+			{
+				case 0:
+				Body[Head].Y -= 1;
+				break;
+				case 1:
+				Body[Head].X += 1;
+				break;
+				case 2:
+				Body[Head].Y += 1;
+				break;
+				default:
+				Body[Head].X -= 1;
+				break;
+			}
+			Body[Tail] = tempVector;
+			SetTail();
 		}
 
 		//Checks if the position is taken by part of snake
@@ -50,5 +73,15 @@ namespace SnakeGood
 			}
 			return false;
 		}
+		
+
+		private void SetTail()
+		{
+			if(Tail == 1)
+				Tail = Body.Capacity - 1;
+
+			Tail -= 1;
+		}
 	}
+
 }
