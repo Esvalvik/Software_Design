@@ -3,30 +3,28 @@
 namespace SnakeGood
 {
 
-	//Class for handling the game
-	public class GameHandler
-	{
+    //Class for handling the game
+    public class GameHandler
+    {
+        static void Main(string[] args)
+        {
+            Init();
+        }
 
-		
+        //For initializing the game
+        public static void Init()
+        {
+            Board board = new Board();
+        }
 
-		public GameHandler()
-		{
-			Board board = new Board();
-		}
+        //Upating the board
+        public void Update()
+        {
+        }
 
-		//For initializing the game
-		public void Init()
-		{
-		}
-
-		//Upating the board
-		public void Update()
-		{
-		}
-
-		//"Draws" the board in the application window
-		public void Draw()
-		{
-		}
-	}
+        //"Draws" the board in the application window
+        public void Draw()
+        {
+        }
+    }
 }

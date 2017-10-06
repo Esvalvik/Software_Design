@@ -45,7 +45,6 @@
     <Compile Include="Board.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="GameHandler.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Snake.cs" />
     <Compile Include="Vector2.cs" />
