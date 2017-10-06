@@ -9,6 +9,7 @@ namespace SnakeGood
     {
         private static Board _board;
         private static Stopwatch _timer;
+
         static void Main(string[] args)
         {
             Init();
@@ -54,14 +55,14 @@ namespace SnakeGood
 
                 if (_board.GameState == Board.STATE_RUNNING)
                 {
-                    if (readKey.Key == ConsoleKey.UpArrow && _lastDir != 2)
-                        _currentDir = 0;
-                    else if (readKey.Key == ConsoleKey.RightArrow && _lastDir != 3)
-                        _currentDir = 1;
-                    else if (readKey.Key == ConsoleKey.DownArrow && _lastDir != 0)
-                        _currentDir = 2;
-                    else if (readKey.Key == ConsoleKey.LeftArrow && _lastDir != 1)
-                        _currentDir = 3;
+                    if (readKey.Key == ConsoleKey.UpArrow && _board.Snake.LastDirection != 2)
+                        _board.Snake.Direction = 0;
+                    else if (readKey.Key == ConsoleKey.RightArrow && _board.Snake.LastDirection != 3)
+						_board.Snake.Direction = 1;
+                    else if (readKey.Key == ConsoleKey.DownArrow && _board.Snake.LastDirection != 0)
+						_board.Snake.Direction = 2;
+                    else if (readKey.Key == ConsoleKey.LeftArrow && _board.Snake.LastDirection != 1)
+						_board.Snake.Direction = 3;
                 }
             }
         }

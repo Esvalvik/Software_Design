@@ -6,7 +6,7 @@ namespace SnakeGood
 {
 	public class Snake
 	{
-		List<Vector2> Body = new List<Vector2>();
+		public List<Vector2> Body = new List<Vector2>();
 		public int Direction
 		{
 			get; set;
@@ -16,11 +16,11 @@ namespace SnakeGood
 			get; set;
 		}
 
-		int Head
+		public int Head
 		{
 			get;
 		}
-		int Tail
+		public int Tail
 		{
 			get; set;
 		}
@@ -73,7 +73,12 @@ namespace SnakeGood
 			}
 			return false;
 		}
-		
+
+		public void Grow()
+		{
+			Body.Add(Body[Tail]);
+			Tail = Body.Capacity - 1;
+		}
 
 		private void SetTail()
 		{
