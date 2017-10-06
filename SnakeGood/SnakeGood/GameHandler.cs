@@ -3,7 +3,6 @@ using System.Diagnostics;
 
 namespace SnakeGood
 {
-
     //Class for handling the game
     public class GameHandler
     {

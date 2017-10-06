@@ -1,21 +1,33 @@
-﻿05.10.2017
+05.10.2017
 
-Mangler medlemmer Thorseboi96 og MC Hammer87
+Mangler medlemmer Thorseboi96(SYK) og MC Hammer87(Grøftefyll)
 
 1. Gikk gjennom koden, byttet ut navn og gav mer luft mellom linjene.
 2. Tegnet opp røff oversikt over fornuftige klasser i Sebsmeisters bok
 3. Delte opp koden i nye klasser
 
+06.10.2017
 
+Mangler medlemmer Thorseboi96(SYK)
 
+1. Slitt med Visual Mac
+2. Implementert funksjonalitet i klasser
+3. Testet og spist mat
 
 
 TODO
 
+UML-ferdig prosjekt
+Gjøre ferdig
+
+
+DONE
+
+UML - Før koding
+
 Snake
 	- List<Vector2>
 	- int Direction
-	- Vector2 Head, Tail
 	+ bool PosTaken(Vector2)
 	+ move();
 
@@ -28,6 +40,7 @@ Vector2
 	- int y
 
 GameHandler
+	- Board
 	+ Init()
 	+ Update()
 	+ Draw()
@@ -36,4 +49,3 @@ Board
 	- Snake
 	- Food
 	- Vector2 gameWindowSize
-	
