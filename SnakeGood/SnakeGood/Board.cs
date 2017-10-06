@@ -20,7 +20,6 @@ namespace SnakeGood
         public void Logic()
         {
             _snake.Move();
-
         }
 	}
 }

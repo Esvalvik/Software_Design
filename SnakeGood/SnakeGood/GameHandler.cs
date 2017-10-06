@@ -38,7 +38,7 @@ namespace SnakeGood
             //Gameover motherfucker
             if (_board.GameState == Board.STATE_RUNNING)
             {
-                Console.WriteLine("Tick");
+                _board.Logic();
             }
         }
 
