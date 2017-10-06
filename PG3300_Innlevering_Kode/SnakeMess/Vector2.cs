@@ -24,5 +24,7 @@ namespace SnakeMess
 
 		public static bool operator ==(Vector2 v, Vector2 u)
 			{	return ((v.X == u.X) && (v.Y == u.Y)) ? true : false; }
-	}
+        public static bool operator !=(Vector2 v, Vector2 u)
+        { return !(v == u); }
+    }
 }
