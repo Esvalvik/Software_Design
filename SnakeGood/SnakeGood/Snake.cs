@@ -29,12 +29,11 @@ namespace SnakeGood
 
 			Head = Body.First();
 			Tail = Body.Last();
-
-			
 		}
 
 		public void Move()
 		{
+
 		}
 
 		//Checks if the position is taken by part of snake

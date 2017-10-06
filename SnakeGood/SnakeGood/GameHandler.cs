@@ -8,8 +8,6 @@ namespace SnakeGood
     public class GameHandler
     {
         private static Board _board;
-        private const int STATE_INIT = 0, STATE_RUNNING = 1, STATE_PAUSED = 2, STATE_GAMEOVER = 3;
-        private static int _gameState = STATE_INIT;
         private static Stopwatch _timer;
 
         private static int _currentDir = 0;
@@ -17,7 +15,7 @@ namespace SnakeGood
         static void Main(string[] args)
         {
             Init();
-            while (_gameState != STATE_GAMEOVER)
+            while (_board.GameState != Board.STATE_GAMEOVER)
             {
                 if (_timer.ElapsedMilliseconds > 100)
                 {
@@ -34,14 +32,14 @@ namespace SnakeGood
             _board = new Board();
             _timer = new Stopwatch();
             _timer.Start();
-            _gameState = STATE_RUNNING;
+            _board.GameState = Board.STATE_RUNNING;
         }
 
         //Upating the board
         public static void Update()
         {
             //Gameover motherfucker
-            if (_gameState == STATE_RUNNING)
+            if (_board.GameState == Board.STATE_RUNNING)
             {
                 Console.WriteLine("Tick");
             }
@@ -53,11 +51,11 @@ namespace SnakeGood
             {
                 ConsoleKeyInfo readKey = Console.ReadKey(true);
                 if (readKey.Key == ConsoleKey.Escape)
-                    _gameState = STATE_GAMEOVER;
+                    _board.GameState = Board.STATE_GAMEOVER;
                 else if (readKey.Key == ConsoleKey.Spacebar)
-                    _gameState = (_gameState != STATE_PAUSED) ? STATE_PAUSED : STATE_RUNNING;
+                    _board.GameState = (_board.GameState != Board.STATE_PAUSED) ? Board.STATE_PAUSED : Board.STATE_RUNNING;
 
-                if (_gameState == STATE_RUNNING)
+                if (_board.GameState == Board.STATE_RUNNING)
                 {
                     if (readKey.Key == ConsoleKey.UpArrow && _lastDir != 2)
                         _currentDir = 0;
