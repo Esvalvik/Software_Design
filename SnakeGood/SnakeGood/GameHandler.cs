@@ -9,9 +9,6 @@ namespace SnakeGood
     {
         private static Board _board;
         private static Stopwatch _timer;
-
-        private static int _currentDir = 0;
-        private static int _lastDir = 0;
         static void Main(string[] args)
         {
             Init();
