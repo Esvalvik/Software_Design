@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Snake
+namespace SnakeGood
 {
 	public class Board
 	{
@@ -11,14 +11,15 @@ namespace Snake
 		public Board()
 		{
 			_snake = new Snake(4);
-			_food = new Food(_width, _height);
+			_food = new Food(_windowSize);
 			for(int i = 0; i < 10; i++)
 			{
 				_food.Position = _food.NewPosition(_windowSize);
-				Console.WriteLine("\nNew food pos: " + _food.Position);
+				Console.WriteLine("\nNew food pos: " + _food.Position.ToString);
+				Console.ReadLine();
 			}
 		}
 
-		
+
 	}
 }

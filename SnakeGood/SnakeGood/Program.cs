@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Snake
+namespace SnakeGood
 {
 	class Program
 	{
 		static void Main(string[] args)
 		{
+			GameHandler game = new GameHandler();
 		}
 	}
 }
