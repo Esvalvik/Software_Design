@@ -14,8 +14,11 @@ namespace SnakeGood
             Init();
             while (_gameState != STATE_GAMEOVER)
             {
-                Update();
-                Draw();
+                if (_gameState != STATE_PAUSED)
+                {
+                    Update();
+                    Draw();
+                }
             }
         }
 
