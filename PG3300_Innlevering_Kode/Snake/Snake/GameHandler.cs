@@ -2,9 +2,15 @@
 
 namespace Snake
 {
+	public static void main(string arg[])
+	{
+		Board board = new Board();
+	}
 	//Class for handling the game
 	public class GameHandler
 	{
+		
+
 
 		public GameHandler()
 		{

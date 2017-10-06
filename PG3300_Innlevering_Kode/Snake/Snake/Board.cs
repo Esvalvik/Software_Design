@@ -12,6 +12,11 @@ namespace Snake
 		{
 			_snake = new Snake(4);
 			_food = new Food(_width, _height);
+			for(int i = 0; i < 10; i++)
+			{
+				_food.Position = _food.NewPosition(_windowSize);
+				Console.WriteLine("\nNew food pos: " + _food.Position);
+			}
 		}
 
 		

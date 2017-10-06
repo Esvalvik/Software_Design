@@ -1,4 +1,4 @@
-05.10.2017
+﻿05.10.2017
 
 Mangler medlemmer Thorseboi96 og MC Hammer87
 
@@ -10,16 +10,12 @@ Mangler medlemmer Thorseboi96 og MC Hammer87
 
 
 
-
-
-
-
-
 TODO
 
 Snake
 	- List<Vector2>
 	- int Direction
+	- Vector2 Head, Tail
 	+ bool PosTaken(Vector2)
 	+ move();
 

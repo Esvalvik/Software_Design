@@ -2,10 +2,11 @@
 
 namespace Snake
 {
+	Random _rnd = new Random();
 
 	public class Food
 	{
-		Public Vector2 Position;
+		public Vector2 Position { get; set; }
 
 		public Food(Vector2 size)
 		{
@@ -13,9 +14,9 @@ namespace Snake
 		}
 
 		//Generate a new random for the food within gamewindow
-		public Vector2 NewPosition(Vector2 size)
+		public static Vector2 NewPosition(Vector2 size)
 		{
-
+			return new Vector2(rnd.Next(0, size.X), rnd.Next(0, size.Y));
 		}
 
 
