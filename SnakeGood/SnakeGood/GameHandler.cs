@@ -64,11 +64,14 @@ namespace SnakeGood
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo readKey = Console.ReadKey(true);
+
+                // Escape or pause game
                 if (readKey.Key == ConsoleKey.Escape)
                     _board.GameState = Board.STATE_GAMEOVER;
                 else if (readKey.Key == ConsoleKey.Spacebar)
                     _board.GameState = (_board.GameState != Board.STATE_PAUSED) ? Board.STATE_PAUSED : Board.STATE_RUNNING;
 
+                // Change snake direction
                 if (_board.GameState == Board.STATE_RUNNING)
                 {
                     if (readKey.Key == ConsoleKey.UpArrow && _board.Snake.LastDirection != Snake.Direction.DOWN)

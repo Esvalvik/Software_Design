@@ -31,7 +31,6 @@ namespace SnakeGood
         public void Draw()
         {
             DoubleBuffer();
-            //Console.Clear();
             Food.Draw();
             Snake.Draw();
         }
