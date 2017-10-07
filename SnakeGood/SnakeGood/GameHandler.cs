@@ -20,12 +20,13 @@ namespace SnakeGood
                     Update();
                     _timerLogic.Restart();
                 }
-                if (_timerDraw.ElapsedMilliseconds > 25)
+                if (_timerDraw.ElapsedMilliseconds > 10)
                 {
                     Draw();
                     _timerDraw.Restart();
                 }
             }
+            // Game over
         }
 
         //For initializing the game
@@ -70,14 +71,14 @@ namespace SnakeGood
 
                 if (_board.GameState == Board.STATE_RUNNING)
                 {
-                    if (readKey.Key == ConsoleKey.UpArrow && _board.Snake.LastDirection != 2)
-                        _board.Snake.Direction = 0;
-                    else if (readKey.Key == ConsoleKey.RightArrow && _board.Snake.LastDirection != 3)
-						_board.Snake.Direction = 1;
-                    else if (readKey.Key == ConsoleKey.DownArrow && _board.Snake.LastDirection != 0)
-						_board.Snake.Direction = 2;
-                    else if (readKey.Key == ConsoleKey.LeftArrow && _board.Snake.LastDirection != 1)
-						_board.Snake.Direction = 3;
+                    if (readKey.Key == ConsoleKey.UpArrow && _board.Snake.LastDirection != Snake.Direction.DOWN)
+                        _board.Snake.CurrentDirection = Snake.Direction.UP;
+                    else if (readKey.Key == ConsoleKey.RightArrow && _board.Snake.LastDirection != Snake.Direction.LEFT)
+                        _board.Snake.CurrentDirection = Snake.Direction.RIGHT;
+                    else if (readKey.Key == ConsoleKey.DownArrow && _board.Snake.LastDirection != Snake.Direction.UP)
+                        _board.Snake.CurrentDirection = Snake.Direction.DOWN;
+                    else if (readKey.Key == ConsoleKey.LeftArrow && _board.Snake.LastDirection != Snake.Direction.RIGHT)
+                        _board.Snake.CurrentDirection = Snake.Direction.LEFT;
                 }
             }
         }

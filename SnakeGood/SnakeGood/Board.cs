@@ -12,6 +12,7 @@ namespace SnakeGood
         public int GameState { get; set; }
 		public Board()
 		{
+            Console.CursorVisible = false;
             GameState = Board.STATE_INIT;
 			Snake = new Snake(4);
 			Food = new Food(_windowSize);
@@ -30,6 +31,7 @@ namespace SnakeGood
         public void Draw()
         {
             DoubleBuffer();
+            //Console.Clear();
             Food.Draw();
             Snake.Draw();
         }

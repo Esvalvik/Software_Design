@@ -6,13 +6,12 @@ namespace SnakeGood
 {
 	public class Snake
 	{
-
         public const char ICON = '0';
         public const ConsoleColor COLOR = ConsoleColor.Yellow;
 		public List<Vector2> Body = new List<Vector2>();
-
-        private int _direction;
-		public int Direction
+        public enum Direction { UP, DOWN, LEFT, RIGHT };
+        private Direction _direction;
+		public Direction CurrentDirection
 		{
 			get { return _direction; }
             set
@@ -21,19 +20,10 @@ namespace SnakeGood
                 LastDirection = _direction;
             }
 		}
-		public int LastDirection
-		{
-			get; set;
-		}
+		public Direction LastDirection {get; set;}
 
-		public int Head
-		{
-			get;
-		}
-		public int Tail
-		{
-			get; set;
-		}
+		public int Head {get;}
+		public int Tail {get; set;}
 
 		public Snake(int size)
 		{
@@ -44,26 +34,26 @@ namespace SnakeGood
 
 			Head = 0;
 			Tail = Body.Capacity - 1;
-			Direction = 3;
-			LastDirection = Direction;
+			CurrentDirection = Direction.RIGHT;
+			LastDirection = CurrentDirection;
 		}
 
 		public void Move()
 		{
 			Vector2 tempVector = Body[Head];
-			switch(Direction)
+			switch(CurrentDirection)
 			{
-				case 0:
-				Body[Head].Y -= 1;
+				case Direction.UP:
+				    Body[Head].Y -= 1;
 				break;
-				case 1:
-				Body[Head].X += 1;
+				case Direction.RIGHT:
+				    Body[Head].X += 1;
 				break;
-				case 2:
-				Body[Head].Y += 1;
+				case Direction.DOWN:
+				    Body[Head].Y += 1;
 				break;
 				default:
-				Body[Head].X -= 1;
+				    Body[Head].X -= 1;
 				break;
 			}
 			Body[Tail] = tempVector;
@@ -104,8 +94,8 @@ namespace SnakeGood
 		{
 			if(Tail == 1)
 				Tail = Body.Capacity - 1;
-
-			Tail -= 1;
+            else
+			    Tail -= 1;
 		}
 	}
 
