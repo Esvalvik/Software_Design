@@ -6,10 +6,20 @@ namespace SnakeGood
 {
 	public class Snake
 	{
+
+        public const char ICON = '0';
+        public const ConsoleColor COLOR = ConsoleColor.Yellow;
 		public List<Vector2> Body = new List<Vector2>();
+
+        private int _direction;
 		public int Direction
 		{
-			get; set;
+			get { return _direction; }
+            set
+            {
+                _direction = value;
+                LastDirection = _direction;
+            }
 		}
 		public int LastDirection
 		{
@@ -29,7 +39,7 @@ namespace SnakeGood
 		{
 			for(int i = 0; i < size; i++)
 			{
-				Body.Add(new Vector2(10, 10));
+				Body.Add(new Vector2(10+i, 10));
 			}
 
 			Head = 0;
@@ -74,7 +84,17 @@ namespace SnakeGood
 			return false;
 		}
 
-		public void Grow()
+        public void Draw()
+        {
+            foreach (Vector2 bodyPart in Body)
+            {
+                Console.ForegroundColor = COLOR;
+                Console.SetCursorPosition(bodyPart.X, bodyPart.Y);
+                Console.Write(ICON);
+            }
+        }
+
+        public void Grow()
 		{
 			Body.Add(Body[Tail]);
 			Tail = Body.Capacity - 1;

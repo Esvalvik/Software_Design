@@ -26,5 +26,38 @@ namespace SnakeGood
 				Snake.Grow();
 			}
         }
+
+        public void Draw()
+        {
+            DoubleBuffer();
+            Food.Draw();
+            Snake.Draw();
+        }
+
+        private void DoubleBuffer()
+        {
+            string buffer = "";
+            char[,] map = new char[_windowSize.X, _windowSize.Y];
+            for (int x = 0; x < _windowSize.X; x++)
+            {
+                for (int y = 0; y < _windowSize.Y; y++)
+                {
+                    map[x, y] = ' ';
+                }
+            }
+
+            // Add snake to buffer
+            foreach(Vector2 bodyPart in Snake.Body)
+            {
+                map[bodyPart.X, bodyPart.Y] = Snake.ICON;
+            }
+
+            // Add food to buffer
+            map[Food.Position.X, Food.Position.Y] = Food.ICON;
+
+            // Clear screen and load buffer
+            Console.Clear();
+            Console.Write(buffer);
+        }
 	}
 }
