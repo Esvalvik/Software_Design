@@ -9,6 +9,7 @@ namespace SnakeGood
 
         Random _rnd = new Random();
 		public Vector2 Position { get; set; }
+        public Vector2 LastPosition { get; set; }
 
 		public Food(Vector2 size)
 		{

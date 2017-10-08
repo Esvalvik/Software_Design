@@ -58,7 +58,7 @@ namespace SnakeGood
 
             // Clear screen and load buffer
             ClearConsole();
-            // Reset cursor and write buffer to screen
+            // Reset cursor and write buffer to 
             Console.SetCursorPosition(0, 0);
             Console.Write(buffer);
         }

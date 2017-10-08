@@ -40,20 +40,20 @@ namespace SnakeGood
 
 		public void Move()
 		{
-			Vector2 tempVector = Body[Head];
+			Vector2 tempVector = new Vector2(Body[Head].X, Body[Head].Y);
 			switch(CurrentDirection)
 			{
 				case Direction.UP:
-				    Body[Head].Y -= 1;
+				    Body.First().Y -= 1;
 				break;
 				case Direction.RIGHT:
-				    Body[Head].X += 1;
+				    Body.First().X += 1;
 				break;
 				case Direction.DOWN:
-				    Body[Head].Y += 1;
+				    Body.First().Y += 1;
 				break;
 				default:
-				    Body[Head].X -= 1;
+				    Body.First().X -= 1;
 				break;
 			}
 			Body[Tail] = tempVector;
@@ -86,7 +86,7 @@ namespace SnakeGood
 
         public void Grow()
 		{
-			Body.Add(Body[Tail]);
+			Body.Add(Body[Body.Capacity-1]);
 			Tail = Body.Capacity - 1;
 		}
 
