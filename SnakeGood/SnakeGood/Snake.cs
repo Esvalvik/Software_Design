@@ -30,12 +30,12 @@ namespace SnakeGood
 		{
 			for(int i = 0; i < size; i++)
 			{
-				Body.Add(new Vector2(10-i, 10));
+				Body.Add(new Vector2(10, 10-i));
 			}
 
 			Head = 0;
 			Tail = Body.Count - 1;
-			CurrentDirection = Direction.RIGHT;
+			CurrentDirection = Direction.DOWN;
 			LastDirection = CurrentDirection;
 		}
 
