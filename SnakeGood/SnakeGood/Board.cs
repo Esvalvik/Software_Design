@@ -57,8 +57,22 @@ namespace SnakeGood
             map[Food.Position.X, Food.Position.Y] = Food.ICON;
 
             // Clear screen and load buffer
-            Console.Clear();
+            ClearConsole();
+            // Reset cursor and write buffer to screen
+            Console.SetCursorPosition(0, 0);
             Console.Write(buffer);
+        }
+
+        private void ClearConsole()
+        {
+            string spaceString = "";
+            for (int x = 0; x < (_windowSize.X*_windowSize.Y); x++)
+            {
+
+                spaceString += " ";
+            }
+            Console.SetCursorPosition(0, 0);
+            Console.Write(spaceString);
         }
 	}
 }

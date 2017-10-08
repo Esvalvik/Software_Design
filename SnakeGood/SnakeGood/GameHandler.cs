@@ -7,23 +7,19 @@ namespace SnakeGood
     public class GameHandler
     {
         private static Board _board;
-        private static Stopwatch _timerLogic, _timerDraw;
+        private static Stopwatch _timer;
 
         static void Main(string[] args)
         {
             Init();
             while (_board.GameState != Board.STATE_GAMEOVER)
             {
-                if (_timerLogic.ElapsedMilliseconds > 100)
+                if (_timer.ElapsedMilliseconds > 100)
                 {
                     Input();
                     Update();
-                    _timerLogic.Restart();
-                }
-                if (_timerDraw.ElapsedMilliseconds > 10)
-                {
-                    Draw();
-                    _timerDraw.Restart();
+
+                    _timer.Restart();
                 }
             }
             // Game over
@@ -33,10 +29,8 @@ namespace SnakeGood
         public static void Init()
         {
             _board = new Board();
-            _timerLogic = new Stopwatch();
-            _timerDraw = new Stopwatch();
-            _timerLogic.Start();
-            _timerDraw.Start();
+            _timer = new Stopwatch();
+            _timer.Start();
             _board.GameState = Board.STATE_RUNNING;
         }
 
@@ -47,14 +41,6 @@ namespace SnakeGood
             if (_board.GameState == Board.STATE_RUNNING)
             {
                 _board.Logic();
-            }
-        }
-
-        public static void Draw()
-        {
-            //Gameover motherfucker
-            if (_board.GameState == Board.STATE_RUNNING)
-            {
                 _board.Draw();
             }
         }
