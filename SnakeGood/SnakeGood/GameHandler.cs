@@ -28,6 +28,7 @@ namespace SnakeGood
         //For initializing the game
         public static void Init()
         {
+            Console.Title = "Westerdals Oslo ACT - SNAKE";
             _board = new Board();
             _timer = new Stopwatch();
             _timer.Start();

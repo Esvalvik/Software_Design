@@ -28,7 +28,7 @@ namespace SnakeGood
                 Snake.Grow();
             }
             // Snake is out of map
-            else if (Snake.Body[Snake.Head].X > _windowSize.X || Snake.Body[Snake.Head].X < 0 || Snake.Body[Snake.Head].Y > _windowSize.Y || Snake.Body[Snake.Head].Y < 0)
+            else if (Snake.Body[Snake.Head].X >= _windowSize.X || Snake.Body[Snake.Head].X < 0 || Snake.Body[Snake.Head].Y >= _windowSize.Y || Snake.Body[Snake.Head].Y < 0)
             {
                 GameState = STATE_GAMEOVER;
             }   
