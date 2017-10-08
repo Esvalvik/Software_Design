@@ -79,17 +79,19 @@ namespace SnakeGood
         {
             for (int i = 0; i < Body.Count; i++)
             {
-                Console.ForegroundColor = COLOR;
-                Console.SetCursorPosition(Body[i].X, Body[i].Y);
-                char icon =  (i == Head) ? ICON_HEAD : ICON;
-                Console.Write(icon);
+                if (Body[i].X >= 0 && Body[i].Y >= 0 && Body[i].X < Console.WindowWidth)
+                {
+                    Console.ForegroundColor = COLOR;
+                    Console.SetCursorPosition(Body[i].X, Body[i].Y);
+                    char icon = (i == Head) ? ICON_HEAD : ICON;
+                    Console.Write(icon);
+                }
             }
         }
 
         public void Grow()
 		{
-			Body.Add(Body.Last());
-			//Tail = Body.Count - 1;
+			Body.Add(Body[Tail]);
 		}
 
 		private void SetTail()

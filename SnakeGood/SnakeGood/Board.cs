@@ -21,11 +21,17 @@ namespace SnakeGood
         public void Logic()
         {
             Snake.Move();
-			if(Food.Position == Snake.Body[Snake.Head] && Food.LastPosition != Snake.Body[Snake.Head])
-			{
-				Food.Position = Food.NewPosition(_windowSize);
-				Snake.Grow();
-			}
+            // Snake found food
+            if (Food.Position == Snake.Body[Snake.Head] && Food.LastPosition != Snake.Body[Snake.Head])
+            {
+                Food.Position = Food.NewPosition(_windowSize);
+                Snake.Grow();
+            }
+            // Snake is out of map
+            else if (Snake.Body[Snake.Head].X > _windowSize.X || Snake.Body[Snake.Head].X < 0 || Snake.Body[Snake.Head].Y > _windowSize.Y || Snake.Body[Snake.Head].Y < 0)
+            {
+                GameState = STATE_GAMEOVER;
+            }   
         }
 
         public void Draw()
@@ -50,7 +56,8 @@ namespace SnakeGood
             // Add snake to buffer
             foreach(Vector2 bodyPart in Snake.Body)
             {
-                map[bodyPart.X, bodyPart.Y] = Snake.ICON;
+                if(bodyPart.X >= 0 && bodyPart.Y >= 0 && bodyPart.X < _windowSize.X && bodyPart.Y < _windowSize.Y)
+                    map[bodyPart.X, bodyPart.Y] = Snake.ICON;
             }
 
             // Add food to buffer
