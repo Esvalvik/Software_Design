@@ -87,7 +87,7 @@ namespace SnakeGood
         public void Grow()
 		{
 			Body.Add(Body[Tail]);
-			Tail = Body.Capacity - 1;
+			Tail = Body.Count - 1;
 		}
 
 		private void SetTail()
