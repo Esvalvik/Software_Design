@@ -21,7 +21,7 @@ namespace SnakeGood
         public void Logic()
         {
             Snake.Move();
-			if(Food.Position == Snake.Body[Snake.Head])
+			if(Food.Position == Snake.Body[Snake.Head] && Food.LastPosition != Snake.Body[Snake.Head])
 			{
 				Food.Position = Food.NewPosition(_windowSize);
 				Snake.Grow();

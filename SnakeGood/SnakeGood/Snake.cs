@@ -33,7 +33,7 @@ namespace SnakeGood
 			}
 
 			Head = 0;
-			Tail = Body.Capacity - 1;
+			Tail = Body.Count - 1;
 			CurrentDirection = Direction.RIGHT;
 			LastDirection = CurrentDirection;
 		}
@@ -86,14 +86,14 @@ namespace SnakeGood
 
         public void Grow()
 		{
-			Body.Add(Body[Body.Capacity-1]);
-			Tail = Body.Capacity - 1;
+			Body.Add(Body.Last());
+			//Tail = Body.Count - 1;
 		}
 
 		private void SetTail()
 		{
 			if(Tail == 1)
-				Tail = Body.Capacity - 1;
+				Tail = Body.Count - 1;
             else
 			    Tail -= 1;
 		}
