@@ -6,13 +6,16 @@ namespace SnakeGood
 	{
         public const char ICON = '$';
         public const ConsoleColor COLOR = ConsoleColor.Green;
+        private Vector2 _position = new Vector2(10, 10);
+        private Random _rnd = new Random();
 
-        Random _rnd = new Random();
-		public Vector2 Position { get; set; }
+		public Vector2 Position { get { return _position; } set { LastPosition = Position; _position = value; } }
+        public Vector2 LastPosition { get; set; }
 
 		public Food(Vector2 size)
 		{
-			Position = new Vector2(10, 10);
+            // Init last pos
+			Position = new Vector2(11, 11);
 		}
 
         public void Draw()

@@ -7,6 +7,7 @@ namespace SnakeGood
 	public class Snake
 	{
         public const char ICON = '0';
+        public const char ICON_HEAD = '@';
         public const ConsoleColor COLOR = ConsoleColor.Yellow;
 		public List<Vector2> Body = new List<Vector2>();
         public enum Direction { UP, DOWN, LEFT, RIGHT };
@@ -29,31 +30,31 @@ namespace SnakeGood
 		{
 			for(int i = 0; i < size; i++)
 			{
-				Body.Add(new Vector2(10+i, 10));
+				Body.Add(new Vector2(10, 10-i));
 			}
 
 			Head = 0;
-			Tail = Body.Capacity - 1;
-			CurrentDirection = Direction.RIGHT;
+			Tail = Body.Count - 1;
+			CurrentDirection = Direction.DOWN;
 			LastDirection = CurrentDirection;
 		}
 
 		public void Move()
 		{
-			Vector2 tempVector = Body[Head];
+			Vector2 tempVector = new Vector2(Body[Head].X, Body[Head].Y);
 			switch(CurrentDirection)
 			{
 				case Direction.UP:
-				    Body[Head].Y -= 1;
+				    Body.First().Y -= 1;
 				break;
 				case Direction.RIGHT:
-				    Body[Head].X += 1;
+				    Body.First().X += 1;
 				break;
 				case Direction.DOWN:
-				    Body[Head].Y += 1;
+				    Body.First().Y += 1;
 				break;
 				default:
-				    Body[Head].X -= 1;
+				    Body.First().X -= 1;
 				break;
 			}
 			Body[Tail] = tempVector;
@@ -61,39 +62,43 @@ namespace SnakeGood
 		}
 
 		//Checks if the position is taken by part of snake
-		public bool PosTaken(Vector2 pos)
+		public bool PosTaken(Vector2 pos, bool countHead)
 		{
-			foreach(Vector2 i in Body)
-			{
-				Console.WriteLine(i.ToString);
-				if(pos == i)
-				{
-					return true;
-				}
-			}
-			return false;
+            for(int i = 0; i < Body.Count; i++)
+            {
+                if (!countHead && i == Head)
+                    continue;
+                if (pos == Body[i])
+                    return true;
+            }
+            return false;
 		}
 
         public void Draw()
         {
-            foreach (Vector2 bodyPart in Body)
+            for (int i = 0; i < Body.Count; i++)
             {
-                Console.ForegroundColor = COLOR;
-                Console.SetCursorPosition(bodyPart.X, bodyPart.Y);
-                Console.Write(ICON);
+                if (Body[i].X >= 0 && Body[i].Y >= 0 && Body[i].X < Console.WindowWidth)
+                {
+                    Console.ForegroundColor = COLOR;
+                    Console.SetCursorPosition(Body[i].X, Body[i].Y);
+                    char icon = (i == Head) ? ICON_HEAD : ICON;
+                    Console.Write(icon);
+                }
             }
         }
 
         public void Grow()
 		{
 			Body.Add(Body[Tail]);
-			Tail = Body.Count - 1;
+			Tail = Body.Capacity - 1;
+
 		}
 
 		private void SetTail()
 		{
 			if(Tail == 1)
-				Tail = Body.Capacity - 1;
+				Tail = Body.Count - 1;
             else
 			    Tail -= 1;
 		}
