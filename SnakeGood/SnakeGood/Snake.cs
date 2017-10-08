@@ -7,6 +7,7 @@ namespace SnakeGood
 	public class Snake
 	{
         public const char ICON = '0';
+        public const char ICON_HEAD = '@';
         public const ConsoleColor COLOR = ConsoleColor.Yellow;
 		public List<Vector2> Body = new List<Vector2>();
         public enum Direction { UP, DOWN, LEFT, RIGHT };
@@ -76,11 +77,12 @@ namespace SnakeGood
 
         public void Draw()
         {
-            foreach (Vector2 bodyPart in Body)
+            for (int i = 0; i < Body.Count; i++)
             {
                 Console.ForegroundColor = COLOR;
-                Console.SetCursorPosition(bodyPart.X, bodyPart.Y);
-                Console.Write(ICON);
+                Console.SetCursorPosition(Body[i].X, Body[i].Y);
+                char icon =  (i == Head) ? ICON_HEAD : ICON;
+                Console.Write(icon);
             }
         }
 
