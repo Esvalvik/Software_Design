@@ -30,7 +30,7 @@ namespace SnakeGood
 		{
 			for(int i = 0; i < size; i++)
 			{
-				Body.Add(new Vector2(10+i, 10));
+				Body.Add(new Vector2(10-i, 10));
 			}
 
 			Head = 0;
@@ -62,17 +62,16 @@ namespace SnakeGood
 		}
 
 		//Checks if the position is taken by part of snake
-		public bool PosTaken(Vector2 pos)
+		public bool PosTaken(Vector2 pos, bool countHead)
 		{
-			foreach(Vector2 i in Body)
-			{
-				Console.WriteLine(i.ToString);
-				if(pos == i)
-				{
-					return true;
-				}
-			}
-			return false;
+            for(int i = 0; i < Body.Count; i++)
+            {
+                if (!countHead && i == Head)
+                    continue;
+                if (pos == Body[i])
+                    return true;
+            }
+            return false;
 		}
 
         public void Draw()

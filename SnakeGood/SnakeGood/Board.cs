@@ -31,7 +31,12 @@ namespace SnakeGood
             else if (Snake.Body[Snake.Head].X >= _windowSize.X || Snake.Body[Snake.Head].X < 0 || Snake.Body[Snake.Head].Y >= _windowSize.Y || Snake.Body[Snake.Head].Y < 0)
             {
                 GameState = STATE_GAMEOVER;
-            }   
+            }
+            // Snake eats itself
+            else if (Snake.PosTaken(Snake.Body[Snake.Head], false))
+            {
+                GameState = STATE_GAMEOVER;
+            }
         }
 
         public void Draw()
