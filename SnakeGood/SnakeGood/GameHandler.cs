@@ -6,6 +6,7 @@ namespace SnakeGood
     //Class for handling the game
     public class GameHandler
     {
+        private static int gameSpeed = 100;
         private static Board _board;
         private static Stopwatch _timer;
 
@@ -14,7 +15,7 @@ namespace SnakeGood
             Init();
             while (_board.GameState != Board.STATE_GAMEOVER)
             {
-                if (_timer.ElapsedMilliseconds > 10)
+                if (_timer.ElapsedMilliseconds > gameSpeed)
                 {
                     Input();
                     Update();
