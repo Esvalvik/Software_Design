@@ -6,9 +6,6 @@ namespace SnakeGood
 
 	public class Vector2
 	{
-
-		//public const string Ok = "Ok";
-
 		public int X, Y;
 		public Vector2(int x = 0, int y = 0)
 		{
@@ -39,7 +36,7 @@ namespace SnakeGood
 				   X == vector.X &&
 				   Y == vector.Y;
 		}
-
+  
 		public override int GetHashCode()
 		{
 			var hashCode = 1861411795;
