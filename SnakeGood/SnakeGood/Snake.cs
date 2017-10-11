@@ -6,10 +6,10 @@ namespace SnakeGood
 {
 	public class Snake
 	{
-        public const char ICON = '0';
-        public const char ICON_HEAD = '@';
-        public const ConsoleColor COLOR = ConsoleColor.Yellow;
-		public List<Vector2> Body = new List<Vector2>();
+        private const char ICON = '0';
+        private const char ICON_HEAD = '@';
+        private const ConsoleColor COLOR = ConsoleColor.Yellow;
+        public List<Vector2> Body = new List<Vector2>();
         public enum Direction { UP, DOWN, LEFT, RIGHT };
         private Direction _direction;
 		public Direction CurrentDirection
@@ -101,15 +101,5 @@ namespace SnakeGood
             else
 			    Tail -= 1;
 		}
-
-		public void PrintPos()
-		{
-			for(int i = 0; i < Body.Count; i++)
-			{
-				Console.WriteLine("Position for nr. " + (i + 1) + " is: " + Body[i].ToString);
-			}
-		}
 	}
-
-
 }
