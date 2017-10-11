@@ -8,9 +8,8 @@ namespace SnakeGood
 	{
         public const char ICON = '0';
         public const char ICON_HEAD = '@';
-		public const char ICON_TAIL = '%';
-        public const ConsoleColor COLOR = ConsoleColor.Yellow;
-		public List<Vector2> Body = new List<Vector2>();
+        private const ConsoleColor COLOR = ConsoleColor.Yellow;
+        public List<Vector2> Body = new List<Vector2>();
         public enum Direction { UP, DOWN, LEFT, RIGHT };
         private Direction _direction;
 		public Direction CurrentDirection
@@ -92,9 +91,7 @@ namespace SnakeGood
 
         public void Grow()
 		{
-			Body.Add(Body[1]);
-			
-			
+        	Body.Add(Body[1]);
 		}
 
 		private void SetTail()
@@ -104,15 +101,5 @@ namespace SnakeGood
             else
 			    Tail -= 1;
 		}
-
-		public void PrintPos()
-		{
-			for(int i = 0; i < Body.Count; i++)
-			{
-				Console.WriteLine("Position for nr. " + (i + 1) + " is: " + Body[i].ToString);
-			}
-		}
 	}
-
-
 }
