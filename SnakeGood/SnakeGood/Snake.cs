@@ -6,8 +6,8 @@ namespace SnakeGood
 {
 	public class Snake
 	{
-        private const char ICON = '0';
-        private const char ICON_HEAD = '@';
+        public const char ICON = '0';
+        public const char ICON_HEAD = '@';
         private const ConsoleColor COLOR = ConsoleColor.Yellow;
         public List<Vector2> Body = new List<Vector2>();
         public enum Direction { UP, DOWN, LEFT, RIGHT };
