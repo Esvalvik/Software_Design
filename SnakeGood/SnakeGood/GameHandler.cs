@@ -14,7 +14,7 @@ namespace SnakeGood
             Init();
             while (_board.GameState != Board.STATE_GAMEOVER)
             {
-                if (_timer.ElapsedMilliseconds > 10)
+                if (_timer.ElapsedMilliseconds > 100)
                 {
                     Input();
                     Update();

@@ -15,7 +15,7 @@ namespace SnakeGood
 		public Food(Vector2 size)
 		{
             // Init last pos
-			Position = new Vector2(11, 11);
+			Position = new Vector2(20, 20);
 		}
 
         public void Draw()
