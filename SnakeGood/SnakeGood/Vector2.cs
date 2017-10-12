@@ -3,7 +3,6 @@
 
 namespace SnakeGood
 {
-
 	public class Vector2
 	{
 		public int X, Y;
@@ -36,16 +35,5 @@ namespace SnakeGood
 				   X == vector.X &&
 				   Y == vector.Y;
 		}
-  
-		public override int GetHashCode()
-		{
-			var hashCode = 1861411795;
-			hashCode = hashCode * -1521134295 + X.GetHashCode();
-			hashCode = hashCode * -1521134295 + Y.GetHashCode();
-			return hashCode;
-		}
-
-		public new String ToString => "x:" + X + " y:" + Y +
-			"\n";
 	}
 }
