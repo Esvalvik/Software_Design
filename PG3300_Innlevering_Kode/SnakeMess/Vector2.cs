@@ -7,8 +7,6 @@ namespace SnakeMess
 	class Vector2
 	{
 
-		//public const string Ok = "Ok";
-
 		public int X, Y;
 		public Vector2(int x = 0, int y = 0)
 		{
