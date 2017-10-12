@@ -6,7 +6,7 @@ namespace SnakeGood
     //Class for handling the game
     public class GameHandler
     {
-        private static int _gameSpeed = 35;
+        private static int _gameSpeed = 100;
         private static Board _board;
         private static Stopwatch _timer;
 
